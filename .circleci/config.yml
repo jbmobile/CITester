@@ -3,15 +3,15 @@ version: 2.1
 
 jobs:
   print_hello:
-    docker: 
+    docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: echo "Hello"
+      - run: echo Hello
   print_world:
-    docker: 
+    docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: echo "World"
+      - run: echo World
 workflows:
   # Name the workflow "welcome"
   welcome:
