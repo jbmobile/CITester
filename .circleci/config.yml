@@ -19,7 +19,7 @@ jobs:
       - run:
           name: "Echoing env var"
           command: |
-            echo $FNAME
+            echo $FOOBAR
 workflows:
   # Name the workflow "welcome"
   welcome:
