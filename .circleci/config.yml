@@ -16,7 +16,10 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: echo $FNAME
+      - run:
+          name: "Echoing env var"
+          command: |
+            echo $FNAME
 workflows:
   # Name the workflow "welcome"
   welcome:
