@@ -2,10 +2,15 @@
 version: 2.1
 
 commands:
-  dumbprint:
+  dodumbprint:
     description: "This is just a dummy test command"
+    parameters:
+      yes:
+        type: string
+        default: "You are saying yes"
     steps:
-      - run: echo ${CIRCLE_WORKFLOW_ID}
+      - run: echo << parameters.yes >>
+      - run: echo $CIRCLE_WORKFLOW_ID
      
 jobs:
   print_hello:
