@@ -20,13 +20,16 @@ jobs:
           name: "Echoing env var"
           command: |
             echo Does this work ${FOOBAR}
+
+  #NOTE: A much better alternative for the persist path is to use ~/ explicitly thoughout
+  #      rather than simply using '.' everywhere
   save_hello_world_output:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: echo "You'da man!" > output.txt
+      - run: echo "You'da man!" > ~/output.txt
       - persist_to_workspace:
-          root: .
+          root: ~/
           paths:
             - output.txt
   print_hello_output:
@@ -34,8 +37,8 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - attach_workspace:
-          at: .
-      - run: cat output.txt
+          at: ~/
+      - run: cat ~/output.txt
     
 workflows:
   # Name the workflow "welcome"
