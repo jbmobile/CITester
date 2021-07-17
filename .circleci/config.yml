@@ -26,7 +26,7 @@ jobs:
     steps:
       - run: echo "You'da man!" > output.txt
       - persist_to_workspace:
-          root: /tmp/workspace
+          root: .
           paths:
             - output.txt
     
