@@ -9,7 +9,7 @@ commands:
         type: string
         default: "You are saying yes"
     steps:
-      - run: echo << parameters.yes >>
+      - run: echo parameters.yes
      
 jobs:
   print_hello:
