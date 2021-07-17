@@ -58,12 +58,12 @@ jobs:
     steps:
       - dodumbprint
     
- 
 workflows:
   # Name the workflow "welcome"
   welcome:
     # Run the welcome/run job in its own container
     jobs:
+      - use_some_commands_job
       - save_hello_world_output
       - print_hello_output:
           requires:
