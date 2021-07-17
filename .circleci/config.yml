@@ -2,6 +2,7 @@
 version: 2.1
 
 commands:
+  #NOTE: The yaml syntax means the name MUST be all lower case and numbers [an can include '_']
   dodumbprint:
     description: "This is just a dummy test command"
     parameters:
@@ -11,7 +12,7 @@ commands:
     steps:
       - run: echo << parameters.yes >>
       - run: echo $CIRCLE_WORKFLOW_ID
-     
+
 jobs:
   print_hello:
     docker:
@@ -50,6 +51,12 @@ jobs:
       - attach_workspace:
           at: ~/
       - run: cat ~/output.txt
+
+  use_some_commands_job:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - dodumbprint
     
 workflows:
   # Name the workflow "welcome"
