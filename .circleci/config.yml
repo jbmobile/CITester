@@ -22,7 +22,7 @@ jobs:
             echo Does this work ${FOOBAR}
   save_hello_world_output:
     docker:
-      - image: circle/node:13.8.0
+      - image: circleci/node:13.8.0
     steps:
       - run: echo "You'da man!" > output.txt
       - persist_to_workspace:
