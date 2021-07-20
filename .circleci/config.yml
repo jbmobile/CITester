@@ -63,7 +63,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run: echo Bad Mojo!
-    #when: on_fail
+        when: on_fail
     
 workflows:
   # Name the workflow "welcome"
