@@ -41,7 +41,8 @@ jobs:
     steps:
       - run: echo "You'da man!" > ~/output.txt
       - persist_to_workspace:
-          root: /tmp/foo/
+          root: ~/
+          #root: /tmp/foo/ #Deliberate to cause a failure for testing
           paths:
             - output.txt
       - run:
