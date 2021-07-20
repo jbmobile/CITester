@@ -44,7 +44,10 @@ jobs:
           root: /tmp/foo/
           paths:
             - output.txt
-      - run: echo Bad Mojo!
+      - run:
+          name: Run on fail status
+          command: |
+            echo "I am result of above failed job"
           when: on_fail
   print_hello_output:
     docker:
