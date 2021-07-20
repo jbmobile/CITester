@@ -41,7 +41,7 @@ jobs:
     steps:
       - run: echo "You'da man!" > ~/output.txt
       - persist_to_workspace:
-          root: ~/
+          root: /tmp/foo/
           paths:
             - output.txt
   print_hello_output:
@@ -57,6 +57,13 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - dodumbprint
+
+  bad_mojo:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: echo Bad Mojo!
+    when: on_fail
     
 workflows:
   # Name the workflow "welcome"
